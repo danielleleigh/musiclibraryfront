@@ -26,7 +26,7 @@ class AddSong extends Component {
   render() {
     return (
       <div>
-        <h2>Add Song</h2>
+        <h4>Add Song</h4>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <label>Title: </label>
           <input
@@ -58,7 +58,7 @@ class AddSong extends Component {
           />
           <label>Release Date: </label>
           <input
-            type="text"
+            type="date"
             name="release_date"
             onChange={this.handleChange}
             value={this.state.release_date}
