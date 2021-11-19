@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import AddSong from "./AddSong";
+import AddSong from "./components/AddSong/AddSong";
 import axios from "axios";
-import MusicTable from "./MusicTable/MusicTable";
+import MusicTable from "./components/MusicTable/MusicTable";
+// import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends Component {
   constructor(props) {
@@ -30,11 +31,19 @@ class App extends Component {
     this.getMusic();
   };
 
+  deleteSong = (song) => {
+    axios
+      .post(`http://localhost:8000/music/<int:pk>/`, song)
+      .then((response) => console.log("Delete", response));
+    this.getMusic();
+  };
+
   render() {
     console.log(this.state);
     return (
       <div>
         <MusicTable music={this.state.music} />
+        <SearchBar />
         <AddSong addNewSong={this.addNewSong} />
       </div>
     );
@@ -50,5 +59,5 @@ class App extends Component {
 //       </div>
 //     );
 //   }
-// }
+//
 export default App;
