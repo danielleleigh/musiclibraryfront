@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AddSong from "./components/AddSong/AddSong";
 import axios from "axios";
 import MusicTable from "./components/MusicTable/MusicTable";
-// import SearchBar from "./components/SearchBar/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div>
         <MusicTable music={this.state.music} />
-        <SearchBar />
+        <SearchBar search={this.data} />
         <AddSong addNewSong={this.addNewSong} />
       </div>
     );
