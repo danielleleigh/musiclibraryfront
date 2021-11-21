@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import AddSong from "./components/AddSong/AddSong";
 import axios from "axios";
 import MusicTable from "./components/MusicTable/MusicTable";
-import SearchBar from "./components/SearchBar/SearchBar";
+// import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       music: [],
     };
@@ -31,6 +31,10 @@ class App extends Component {
     this.getMusic();
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   deleteSong = (song) => {
     axios
       .post(`http://localhost:8000/music/<int:pk>/`, song)
@@ -41,23 +45,13 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="options">
         <MusicTable music={this.state.music} />
-        <SearchBar search={this.data} />
+        {/* <SearchBar search={this.data} /> */}
         <AddSong addNewSong={this.addNewSong} />
       </div>
     );
   }
 }
-//   render() {
-//     console.log(this.state);
-//     return (
-//       <div>
-//         <h2>Music Library</h2>
-//         <MusicTable music={this.state.music} />
-//         <AddSong addNewSong={this.addNewSong} />
-//       </div>
-//     );
-//   }
-//
+
 export default App;

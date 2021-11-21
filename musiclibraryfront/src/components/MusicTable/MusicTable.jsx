@@ -23,9 +23,7 @@ function MusicTable(props) {
             <td>{song.genre}</td>
             <td>{song.release_date}</td>
             <td>
-              <button
-                onClick={() => this.props.deleteSong(this.props.music.id)}
-              >
+              <button onClick={() => this.props.deleteSong(this.props.song.id)}>
                 {" "}
                 Delete
               </button>
