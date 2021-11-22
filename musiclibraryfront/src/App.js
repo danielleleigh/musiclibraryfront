@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import AddSong from "./components/AddSong/AddSong";
 import axios from "axios";
 import MusicTable from "./components/MusicTable/MusicTable";
-// import SearchBar from "./components/SearchBar/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       music: [],
     };
@@ -43,11 +43,10 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
-      <div className="options">
+      <div className="app">
         <MusicTable music={this.state.music} />
-        {/* <SearchBar search={this.data} /> */}
+        <SearchBar search={this.state.music} />
         <AddSong addNewSong={this.addNewSong} />
       </div>
     );
