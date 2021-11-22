@@ -1,12 +1,19 @@
-import React from "react";
+import SongList from "../SongList/SongList";
 
-const SearchBar = ({ keyword, setKeyword }) => {
+export default function Search() {
+  const [search, setSearch] = useState("");
+
   return (
-    <input
-      value={keyword}
-      placeholder={"search music"}
-      onChange={(e) => setKeyword(e.target.value)}
-    />
+    <div>
+      <h3 className="title">SONG LIST</h3>
+      <input
+        type="text"
+        placeholder="Search Songs"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <SongList songs={songs} />
+    </div>
   );
-};
-export default SearchBar;
+}

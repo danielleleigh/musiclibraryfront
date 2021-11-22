@@ -1,20 +1,24 @@
 import React from "react";
 
-const SongList = ({ songList = [music] }) => {
+export default function SongList({ songs }) {
   return (
-    <>
-      {songList.map((data, index) => {
-        if (data) {
-          return (
-            <div key={data.music}>
-              <h1>{data.music.song}</h1>
-            </div>
-          );
-        }
-        return null;
-      })}
-    </>
+    <div>
+      <ul>
+        {songs.map((song) => (
+          <li key={song.id}>
+            Title:
+            <span>{song.title}</span>
+            Artist:
+            <span>{song.artist}</span>
+            Album:
+            <span>{song.album}</span>
+            Genre:
+            <span>{song.genre}</span>
+            Release Date:
+            <span>{song.release_date}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-};
-
-export default SongList;
+}

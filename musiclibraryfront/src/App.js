@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div className="app">
         <MusicTable music={this.state.music} />
-        <SearchBar search={this.state.music} />
+        {/* <SearchBar search={this.state.music} /> */}
         <AddSong addNewSong={this.addNewSong} />
       </div>
     );
